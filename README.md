@@ -25,13 +25,16 @@ i take the full data
 ## Next step :
 
     -Dockerise the project
-    -deploy to azure function set every day at evening, new data are update everyday at 12h30, London hour (i'am European), adapt this to your country.
+    -deploy to azure function set every day at evening, new data are update everyday at 12h30, London hour 
+     (i'am European), adapt this to your country.
     -Working on the model
 
 
 ## Some Note's
 
-    -I'am a student in Ml, so i work on the Pipeline, but actualy 29/03, i don't really work on model's, I'm looking for the moment has automated the project, when I am satisfied with this work I will work on the model
+    -I'am a student in Ml, so i work on the Pipeline, but actualy 29/03, i don't really work on model's,
+     I'm looking for the moment has automated the project, when I am satisfied with this work 
+     I will work on the model
 
 ## Folders & data :
 
@@ -65,12 +68,12 @@ i take the full data
     2020-03-29	Spain				2357.0	            -125.0
     2020-03-29	United States		3468.0	             10.0
 
-        date	country			    error_abs_cases	   error_abs_deaths
-    2020-03-30	France					2848.0	         109.0
-    2020-03-30	China					138.0	        -3.0
-    2020-03-30	Italy					1577.0	         314.0
-    2020-03-30	Spain					2802.0	         66.0
-    2020-03-30	United States			5205.0	         331.0
+        date	country			error_abs_cases	   error_abs_deaths
+    2020-03-30	France			    2848.0	             109.0
+    2020-03-30	China				138.0	            -3.0
+    2020-03-30	Italy				1577.0	             314.0
+    2020-03-30	Spain				2802.0	             66.0
+    2020-03-30	United States		5205.0	             331.0
 
 
 
