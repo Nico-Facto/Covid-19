@@ -45,16 +45,16 @@ i take the full data
     pred = Predition made at date (file names contains date)
     rapport = evaluation predcit vs real with error abs.
 
-## Prediction For tomorow 31/03 :
+## Prediction For tomorow 01/04 :
     
     date of prediction will be day -1.
 
         date	country	        total_cases_predict		total_deaths_predict
-    2020-03-30	France	             45016.0		        2891.0
-    2020-03-30	China	             82714.0		        3314.0
-    2020-03-30	Italy	             103801.0		        11648.0
-    2020-03-30	Spain	             84440.0		        7388.0
-    2020-03-30	United States	     160815.0		        3233.0
+    2020-03-30	France	             48409.0		        3460.0
+    2020-03-30	China	             82463.0		        3310.0
+    2020-03-30	Italy	             106285.0		        12378.0
+    2020-03-30	Spain	             89410.0		        8072.0
+    2020-03-30	United States	     184381.0		        4071.0
 
 ## Reporting : 
 

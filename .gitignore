@@ -2,3 +2,4 @@
 .venv
 .vscode
 04-World-deaths-API.ipynb
+modelCovidDeathPred.joblib
