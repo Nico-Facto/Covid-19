@@ -1,1 +1,4 @@
 .ipynb_checkpoints
+.venv
+.vscode
+04-World-deaths-API.ipynb

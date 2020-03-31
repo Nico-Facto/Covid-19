@@ -19,7 +19,8 @@ i take the full data
 
 ## Run experiment
 
-    First launch the notebook 0 , you will have the score of prediction made the day before, and create new dataset to predcict tomorow.
+    First launch the notebook 0 , you will have the score of prediction made the day before
+    and create new dataset to predcict tomorow.
     then run notebook 01.
 
 ## Next step :
@@ -55,25 +56,9 @@ i take the full data
     2020-03-30	Spain	             84440.0		        7388.0
     2020-03-30	United States	     160815.0		        3233.0
 
-
-
 ## Reporting : 
 
-    I gather here the synthesis of the error day by day : 
-        
-    date	country			    error_abs_cases	   error_abs_deaths
-    2020-03-29	France		        397.0	             203.0
-    2020-03-29	China		        130.0	            -2.0
-    2020-03-29	Italy				1033.0	             69.0
-    2020-03-29	Spain				2357.0	            -125.0
-    2020-03-29	United States		3468.0	             10.0
-
-        date	country			error_abs_cases	   error_abs_deaths
-    2020-03-30	France			    2848.0	             109.0
-    2020-03-30	China				138.0	            -3.0
-    2020-03-30	Italy				1577.0	             314.0
-    2020-03-30	Spain				2802.0	             66.0
-    2020-03-30	United States		5205.0	             331.0
+    Follow daily reporting on the notebook 03
 
 
 
