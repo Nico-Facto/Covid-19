@@ -5,6 +5,8 @@
     Just click on the Covid Predictor.exe !
     In the soft, set data's for 3 last days of your location or for the world and click on prediction,
     Ia model will display a prediction for tomorow.
+    If prediction return : Service unavailable, this is because server is off, 
+    it shoud be open between 09h-17h -> Central European TimeCET
 
     Application is in pre-alpha state and work only on windows setup.
 
