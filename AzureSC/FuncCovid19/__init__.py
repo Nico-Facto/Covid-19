@@ -44,7 +44,7 @@ def Eval(c,data_load,country):
 
 def createModel(subject,periode,country,n_splits=3,max_iter=5000):
     
-    df = pd.read_csv(f"..\\Base_Files\\full_data{date.today()}.csv")
+    df = pd.read_csv(f".\\Base_Files\\full_data{date.today()}.csv")
     df = df[df['location'].isin([f"{country}"])] 
     vals = df[[f"{subject}"]].values
     
@@ -132,8 +132,8 @@ def main(mytimer: func.TimerRequest) -> None:
     url="https://covid.ourworldindata.org/data/ecdc/full_data.csv"
     s=requests.get(url).content
     c=pd.read_csv(io.StringIO(s.decode('utf-8')))
-    c.to_csv(f"..\\Base_Files\\full_data{date.today()}.csv")
-    data_load = pd.read_csv(f"..\\Pred\\predDf{date.today() - timedelta(days=1)}.csv", index_col=0)
+    c.to_csv(f".\\Base_Files\\full_data{date.today()}.csv")
+    data_load = pd.read_csv(f".\\Pred\\predDf{date.today() - timedelta(days=1)}.csv", index_col=0)
 
     follow_df1 = Eval(c,data_load,"France")
     follow_df2 = Eval(c,data_load,"China")
@@ -143,9 +143,9 @@ def main(mytimer: func.TimerRequest) -> None:
 
     frames = [follow_df1,follow_df2,follow_df3,follow_df4,follow_df5]
     rapport = pd.concat(frames)
-    rapport.to_csv(f"..\\Rapport\\rap{date.today()}.csv")
+    rapport.to_csv(f".\\Rapport\\rap{date.today()}.csv")
 
-    df = pd.read_csv(f"..\\Base_Files\\full_data{date.today()}.csv")
+    df = pd.read_csv(f".\\Base_Files\\full_data{date.today()}.csv")
 
     periode = 3
 
@@ -165,7 +165,7 @@ def main(mytimer: func.TimerRequest) -> None:
     frames = [df_pop_pred1,df_pop_pred2,df_pop_pred3,df_pop_pred4,df_pop_pred5]
     predpred = pd.concat(frames)
 
-    predpred.to_csv(f"..\\Pred\\predDf{date.today()}.csv")
+    predpred.to_csv(f".\\Pred\\predDf{date.today()}.csv")
 
 
 
