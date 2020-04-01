@@ -1,5 +1,15 @@
 ## Covid-19 : IA Machine Learning experiment
 
+## Full application for windows user :
+
+    Just click on the Covid Predictor.exe !
+    In the soft, set data's for 3 last days of your location or for the world and click on prediction,
+    Ia model will display a prediction for tomorow.
+
+    Application is in pre-alpha state and work only on windows setup.
+
+## Ia experiment :
+
 (You will find prediction for tomorow & reporting every day at notebook 03 : 
  https://github.com/Nico-Facto/Covid-19/blob/master/03-Visu-Over-Time.ipynb)
 
@@ -18,7 +28,7 @@ but we can do this with all country.
 Sources of data : https://ourworldindata.org/coronavirus-source-data
 i take the full data
 
-## Run experiment
+## Run experiment :
 
     First launch the notebook 0 , you will have the score of prediction made the day before
     and create new dataset to predcict tomorow.
