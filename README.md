@@ -3,10 +3,9 @@
 ## Full application for windows user :
 
     Just click on the Covid Predictor.exe !
-    In the soft, set data's for 3 last days of your location or for the world and click on prediction,
-    Ia model will display a prediction for tomorow.
-    If prediction return : Service unavailable, this is because server is off, 
-    it shoud be open between 09h-17h -> Central European TimeCET
+    In the soft, data of the days are display click on prediction,
+    Ia model will display a prediction for tomorow. 
+    Data are update everyday at 14h -> Central European TimeCET
 
     Application is in pre-alpha state and work only on windows setup.
 
@@ -71,10 +70,6 @@ i take the full data
 
     Follow daily reporting on the notebook 03 : https://github.com/Nico-Facto/Covid-19/blob/master/03-Visu-Over-Time.ipynb
 
-
-
-
-     
 
 
 
