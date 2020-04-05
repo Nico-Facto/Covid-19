@@ -2,9 +2,9 @@
 
 ## Full application for windows user :
 
-    Just click on the Covid Predictor.exe !
+    Go on application folder and Just click on the Covid Predictor.exe !
     In the soft, data of the day are display, click on prediction,
-    Ia model will display a prediction for tomorow. 
+    Ia model will display predictions for tomorow. 
     Data are update everyday at 14h -> Central European TimeCET
 
     Application is in pre-alpha state and work only on windows setup.
