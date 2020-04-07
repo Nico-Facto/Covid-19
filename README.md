@@ -16,8 +16,9 @@
 
 With this project i try to predict number of cases & death the day before, for the next day.
 
-This project follow 5 country :
+This project follow 5 country and world state :
     
+    -World
     -France
     -China
     -Italy
@@ -43,16 +44,10 @@ i take the full data
     pred = Predition made at date (file names contains date)
     rapport = evaluation predcit vs real with error abs.
 
-## Prediction For tomorow 07/04 :
+## Prediction For tomorow :
     
-    date of prediction will be day -1.
-
-        date	country	        total_cases_predict		total_deaths_predict
-    2020-04-06	France	             74073.0		        10253.0	
-    2020-04-06	China	             82822.0		        3337.0
-    2020-04-06	Italy	             133498.0		        16382.0
-    2020-04-06	Spain	             136151.0		        12932.0
-    2020-04-06	United States	     367538.0		        11034.0
+    At the end of notebook : https://github.com/Nico-Facto/Covid-19/blob/master/01-Ts-Predict-Covid
+    or in the pred folder in azureSC.
 
 ## Reporting : 
 
@@ -60,9 +55,8 @@ i take the full data
 
 ## Some Note's
 
-    -I'am a student in AI, i work on the Pipeline, but actualy 29/03,
      I'm looking for the moment has automated the project, when I am satisfied with this work 
-     I will add features
+     I will add features to the app.
 
 
 
