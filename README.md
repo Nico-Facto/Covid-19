@@ -28,7 +28,7 @@ This project follow 5 country and world state :
 but we can do this with all country.
 
 Sources of data : https://ourworldindata.org/coronavirus-source-data
-i take the full data
+i take the full data.
 
 ## Run experiment :
 
@@ -46,7 +46,7 @@ i take the full data
 
 ## Prediction For tomorow :
     
-    At the end of notebook : https://github.com/Nico-Facto/Covid-19/blob/master/01-Ts-Predict-Covid
+    At the end of notebook : https://github.com/Nico-Facto/Covid-19/blob/master/01-Ts-Predict-Covid.ipynb
     or in the pred folder in azureSC.
 
 ## Reporting : 
