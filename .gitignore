@@ -1,6 +1,9 @@
 .ipynb_checkpoints
 .venv
 .vscode
+__pycache__
 endPoint/
 sec.py
 tweeJob
+ncustpip.py
+04-what-they-say.ipynb
