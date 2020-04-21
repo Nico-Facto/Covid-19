@@ -5,7 +5,7 @@
     Go on application folder and Just click on the Covid Predictor.exe !
     In the soft, data of the day are display, click on prediction,
     Ia model will display predictions for tomorow. 
-    Data are update everyday at 14h -> Central European TimeCET
+    Data are update everyday at 13h/14h -> Central European TimeCET
 
     Application is in pre-alpha state and work only on windows setup.
 
@@ -34,7 +34,7 @@ i take the full data.
 
     First launch the notebook 0 , you will have the score of prediction made the day before
     and create new dataset to predcict tomorow.
-    then run notebook 01.
+    then run notebook 01 / 02 / 03 
 
 ## Folders & data :
 
