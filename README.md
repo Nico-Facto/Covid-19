@@ -16,7 +16,7 @@
 
 With this project i try to predict number of cases & death the day before, for the next day.
 
-This project follow 5 country and world state :
+This project follow 9 country and world state :
     
     -World
     -France
@@ -24,6 +24,10 @@ This project follow 5 country and world state :
     -Italy
     -Spain
     -Usa
+    -United Kingdom
+    -Germany
+    -Iran
+    -Turkey
 
 but we can do this with all country.
 
@@ -31,10 +35,12 @@ Sources of data : https://ourworldindata.org/coronavirus-source-data
 i take the full data.
 
 ## Run experiment :
+    requirements : Python 3.7, scikit-learn 0.22.1 , then pandas,numpy matplotlib,plotly,seaborn.
 
     First launch the notebook 0 , you will have the score of prediction made the day before
     and create new dataset to predcict tomorow.
     then run notebook 01 / 02 / 03 
+    
 
 ## Folders & data :
 
