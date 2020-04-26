@@ -1,7 +1,0 @@
-,date,country,total_cases_predict,total_cases_real,total_deaths_predict,total_deaths_real,error_abs_cases,error_abs_deaths
-0,2020-04-21,France,116201.0,0.0,20933.0,0.0,0.0,0.0
-0,2020-04-21,China,83971.0,0.0,4679.0,0.0,0.0,0.0
-0,2020-04-21,Italy,184079.0,0.0,24517.0,0.0,0.0,0.0
-0,2020-04-21,Spain,204147.0,0.0,21181.0,0.0,0.0,0.0
-0,2020-04-21,United States,810104.0,0.0,44555.0,0.0,0.0,0.0
-0,2020-04-21,World,2506418.0,0.0,174009.0,0.0,0.0,0.0
