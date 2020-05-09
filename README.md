@@ -35,7 +35,7 @@ Sources of data : https://ourworldindata.org/coronavirus-source-data
 i take the full data.
 
 ## Run experiment :
-    requirements : Python 3.7, scikit-learn 0.22.1, pycaret 1.0 , then pandas,numpy matplotlib,plotly,seaborn.
+    requirements : Python 3.7, scikit-learn 0.22.1, then pandas,numpy matplotlib,plotly,seaborn.
 
     First launch the notebook 0 , you will have the score of prediction made the day before
     and create new dataset to predcict tomorow.
