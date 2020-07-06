@@ -1,13 +1,11 @@
 ## Covid-19 : IA Machine Learning experiment
 
-## Full application for windows user :
+## Full application :
 
-    Go on application folder and Just click on the Covid Predictor.exe !
-    In the soft, data of the day are display, click on prediction,
-    Ia model will display predictions for tomorow. 
+    https://covpredic.herokuapp.com/
+
     Data are update everyday at 13h/14h -> Central European TimeCET
 
-    Application is in pre-alpha state and work only on windows setup.
 
 ## Ia experiment :
 
@@ -16,7 +14,7 @@
 
 With this project i try to predict number of cases & death the day before, for the next day.
 
-This project follow 9 country and world state :
+Notebook's follow 10 country and world state :
     
     -World
     -France
@@ -28,6 +26,7 @@ This project follow 9 country and world state :
     -Germany
     -Iran
     -Turkey
+    -Brazil
 
 but we can do this with all country.
 
@@ -59,10 +58,7 @@ i take the full data.
 
     Follow daily reporting on the notebook 03 : https://github.com/Nico-Facto/Covid-19/blob/master/03-Visu-Over-Time.ipynb
 
-## Some Note's
 
-     I'm looking for the moment has automated the project, when I am satisfied with this work 
-     I will add features to the app.
 
 
 
