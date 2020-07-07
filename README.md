@@ -3,6 +3,7 @@
 ## Full application :
 
 https://covpredic.herokuapp.com/
+
 Data are update everyday at 13h/14h -> Central European TimeCET
 
 
