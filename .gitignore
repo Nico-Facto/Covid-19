@@ -9,6 +9,9 @@ ncustpip.py
 
 automaton.py
 automationcloud.py
+Graph_cycles_phases.py
+synth.py
+visversa.ipynb
 
 
 05-Sick-Detector.ipynb
