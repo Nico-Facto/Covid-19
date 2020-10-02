@@ -6,6 +6,10 @@ https://covpredic.herokuapp.com/
 
 Data are update everyday at 13h/14h -> Central European TimeCET
 
+This repo only contains the code to follow the backend pipline of the app.
+It executes the code locally from the notebooks and creates the csv necessary for the operation of the app on the server side. 
+The code that orchestrates everything is not provided.
+See details in Run experiment and Folders & data section of this readme
 
 ## Ia experiment :
 
@@ -34,12 +38,13 @@ Sources of data : https://ourworldindata.org/coronavirus-source-data
 i take the full data.
 
 ## Run experiment :
-    requirements : Python 3.7, scikit-learn 0.22.1, then pandas,numpy matplotlib,plotly,seaborn.
+    requirements : Python 3.7, scikit-learn 0.23.2, then pandas,numpy matplotlib,plotly,seaborn.
+
+    !!! First time ignore the notebook 0 !!!!
 
     First launch the notebook 0 , you will have the score of prediction made the day before
     and create new dataset to predcict tomorow.
     then run notebook 01 / 02 / 03 
-    
 
 ## Folders & data :
 
@@ -47,7 +52,7 @@ i take the full data.
 
     Base_Files = full data donwload by the script 01
     pred = Predition made at date (file names contains date)
-    rapport = evaluation predcit vs real with error abs.
+    rapport = evaluation predict vs real with error abs.
 
 ## Prediction For tomorow :
     
