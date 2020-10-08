@@ -9,4 +9,5 @@ mlruns/
 logs.log
 
 source_code/sec_local.py
+source_code/__pycache__/
 
