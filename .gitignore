@@ -2,15 +2,11 @@
 .venv
 .vscode
 __pycache__
-A_Rapport/
+
 deprecated_code/
 catboost_info/
 mlruns/
 logs.log
 
-endPoint/
-automaton.py
-source_code/
-backpip.py
-dataup.ipynb
+source_code/sec_local.py
 
