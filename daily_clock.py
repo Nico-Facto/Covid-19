@@ -2,8 +2,9 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 
 sched = BlockingScheduler()
 
-@sched.scheduled_job('cron',day_of_week='mon-sun', hour='14', minute='25', timezone="France/Paris")
+@sched.scheduled_job('cron', day_of_week='mon-sun', hour='12', minute='26')
 def timed_job():
+    print("---------- JOB START ----------")
     import daily_job
     print("---------- JOB OVER ----------")
 
