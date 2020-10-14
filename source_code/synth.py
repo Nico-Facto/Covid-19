@@ -3,7 +3,7 @@ import numpy as np
 
 class data_synth():
 
-    def __init__(self,df_cy,df_ph):
+    def __init__(self,df_cy,df_ph=None):
         self.df_cy = df_cy
         self.df_ph = df_ph
 

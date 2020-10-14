@@ -5,8 +5,6 @@ import plotly.graph_objs as go
 import plotly.express as px
 import plotly.figure_factory as ff
 
-import random
-
 class cycles_phases():
     
     def __init__(self,full_df,user_id,col_id,col_date,col_target):
@@ -103,13 +101,10 @@ class cycles_phases():
 
         this_df_asc_ph = pd.DataFrame(columns=inc_df.columns)
         this_df_des_ph = pd.DataFrame(columns=inc_df.columns)
-
         break_asc = False
         break_des = False
-        
         m_show_legend_1 = True
         m_show_legend_2 = True
-
         last_i = inc_df.at[0,"NegA"]
 
         ## 0 asc , 1 desc
@@ -173,18 +168,11 @@ class cycles_phases():
         fig.update_xaxes(range=[0, (self.len_obs-1)])
         return fig
 
-    ## graph events
-    def viz_events(self):
-        inc_df = self.full_df 
-        fig = px.bar(inc_df, x="EventsLoc", y="NegA", color="EventsLoc", title="Events Cumul Neg A")
-        fig.update_layout(xaxis=dict(title="Events Location"),yaxis=dict(title="Cumul NegA")) 
-        return fig
-     
     ## matrice functions code ##
     def matrice_seg(self):
         
         ff = self.full_df
-        is_mean = self.mean_val
+        # is_mean = self.mean_val
         is_min = self.min_val
 
         count = 0
@@ -194,8 +182,8 @@ class cycles_phases():
         for t in ff["time"]:
             
             if count == (self.len_obs-1):
-                new_df["day"] = ff["day"]
-                new_df["phase_nb"] = self.full_df['phase_nb']
+                # new_df["day"] = ff["day"]
+                # new_df["phase_nb"] = self.full_df['phase_nb']
                 return new_df
 
             new_df.at[count,"id"] = user_id
@@ -217,21 +205,21 @@ class cycles_phases():
             new_df.at[count,"y2"] = y2
 
             new_df.at[count,"diff_y"] = new_df.at[count,"y2"] - new_df.at[count,"y1"]
-            new_df.at[count,"slope"] = new_df.at[count,"diff_y"]/new_df.at[count,"diff_t"]
+            # new_df.at[count,"slope"] = new_df.at[count,"diff_y"]/new_df.at[count,"diff_t"]
 
-            new_df.at[count,"intercept"] = (new_t2*y1 - t2*y2) / diff_t
+            # new_df.at[count,"intercept"] = (new_t2*y1 - t2*y2) / diff_t
 
-            new_df.at[count,"auc_to_mean"] = np.trapz(x = (t2, new_t2),
-                                                       y = (y1 - is_mean, y2 - is_mean))
+            # new_df.at[count,"auc_to_mean"] = np.trapz(x = (t2, new_t2),
+            #                                            y = (y1 - is_mean, y2 - is_mean))
 
             new_df.at[count,"auc_to_min"] = np.trapz(x =(t2, new_t2),
                                                       y = (y1 - is_min, y2 - is_min))
 
             ## if true cut at mean desending -1 else 0 or 1 if cut at mean ascending
-            if int(y2 > is_mean) == 0 and int(y1 > is_mean) == 1:
-                new_df.at[count,"mean_inter"] = -1
-            else:    
-                new_df.at[count,"mean_inter"] = int((y2 > is_mean) ^ (y1 > is_mean))
+            # if int(y2 > is_mean) == 0 and int(y1 > is_mean) == 1:
+            #     new_df.at[count,"mean_inter"] = -1
+            # else:    
+            #     new_df.at[count,"mean_inter"] = int((y2 > is_mean) ^ (y1 > is_mean))
 
             new_df.at[count,"segment_nb"] = count+1
             count+=1
@@ -248,6 +236,7 @@ class cycles_phases():
 
         count = 0
         count_cy = 0
+        y1 = round(self.mean_val,2)
 
         for i in inc_df["NegA"]:
             
@@ -258,7 +247,6 @@ class cycles_phases():
                     start_in_cycle = True
             else :
                 in_cycle = False
-                                       
             nb_seg = len(this_df) 
             
             if count == (len(inc_df["NegA"])-1) and in_cycle :
@@ -266,7 +254,6 @@ class cycles_phases():
                 in_cycle = False
                 Last_cycle_not_over = True
 
-            
             if not in_cycle and nb_seg > 0:
                 this_df = this_df.reset_index()
 
@@ -276,41 +263,35 @@ class cycles_phases():
                     ## ici on est sur un segment de 2 asc ou desc sur les 2 premiéres observations
                     first_index = 1
 
-                
                 if first_index == 0:
                     first_index = 1
                     
-
                 L1 = line([inc_df.at[first_index-1,"time_cumul"],inc_df.at[first_index-1,"NegA"]], 
                           [inc_df.at[first_index,"time_cumul"],inc_df.at[first_index,"NegA"]])
                 
                 L2 = line([0,self.mean_val], [1000,self.mean_val])
                 t1= intersection(L1, L2)
                
-               
-                
                 L1 = line([inc_df.at[count-1,"time_cumul"],inc_df.at[count-1,"NegA"]], 
                           [inc_df.at[count,"time_cumul"],inc_df.at[count,"NegA"]])
                 L2 = line([0,self.mean_val], [100,self.mean_val])
                 t2= intersection(L1, L2)
-            
-                y1 = round(self.mean_val,2)
-                y2 = this_df["NegA"].max()
-                
+
+                # y2 = this_df["NegA"].max()
+
                 if count_cy == 0 and start_in_cycle: 
                     new_df.at[count_cy,"t1"] = 0.0000
                 else:
                     new_df.at[count_cy,"t1"] = t1[0]
-                    
                 if Last_cycle_not_over :
                     new_df.at[count_cy,"tn"] = inc_df["time_cumul"].max()
                 else:
                     new_df.at[count_cy,"tn"] = t2[0]
                 
                 new_df.at[count_cy,"duration"] = new_df.at[count_cy,"tn"]- new_df.at[count_cy,"t1"]
-                new_df.at[count_cy,"y_min"] = y1
-                new_df.at[count_cy,"y_max"] = y2
-                new_df.at[count_cy,"amplitude"] = new_df.at[count_cy,"y_max"] - new_df.at[count_cy,"y_min"]
+                # new_df.at[count_cy,"y_min"] = y1
+                # new_df.at[count_cy,"y_max"] = y2
+                # new_df.at[count_cy,"amplitude"] = y2 - y1
 
                 x_trapz = []
                 y_trapz = []
@@ -336,8 +317,7 @@ class cycles_phases():
                 
                 auc_res = abs(np.trapz(x_trapz, y_trapz))
                 new_df.at[count_cy,"auc_to_mean"] = round(auc_res,4)
-                new_df.at[count_cy,"cycle_nb"] = count_cy +1
-                
+                # new_df.at[count_cy,"cycle_nb"] = count_cy +1
                 count_cy +=1
                 this_df = pd.DataFrame(columns=inc_df.columns)
                 
@@ -375,15 +355,15 @@ class cycles_phases():
                     len_mini_obs = len(this_df)-1
                     yn = this_df.at[len_mini_obs,"NegA"]
 
-                    new_df.at[count,"id"] = self.user_id            
+                    # new_df.at[count,"id"] = self.user_id            
                     new_df.at[count,"t1"] = t1
                     new_df.at[count,"tn"] = tn
-                    new_df.at[count,"diff_t"] = new_df.at[count,"tn"] - new_df.at[count,"t1"] 
-                    new_df.at[count,"y1"] = y1
+                    new_df.at[count,"diff_t"] = tn - t1
+                    # new_df.at[count,"y1"] = y1
 
-                    new_df.at[count,"yn"] = yn
-                    new_df.at[count,"diff_y"] = new_df.at[count,"yn"] - new_df.at[count,"y1"] 
-                    new_df.at[count,"slope_e"] = new_df.at[count,"diff_y"] / new_df.at[count,"diff_t"]
+                    # new_df.at[count,"yn"] = yn
+                    new_df.at[count,"diff_y"] = yn - y1
+                    # new_df.at[count,"slope_e"] = new_df.at[count,"diff_y"] / new_df.at[count,"diff_t"]
                      
                     mask = (seg_data['t1'] >= t1) & (seg_data['t2'] <= tn)
                     auc_to_min = seg_data.loc[mask]
@@ -393,7 +373,7 @@ class cycles_phases():
                     ph_cat = last_i
 
                     new_df.at[count,"cat"] = ph_cat
-                    new_df.at[count,"phase_nb"] = count_ph 
+                    # new_df.at[count,"phase_nb"] = count_ph 
 
                     new_df = new_df.reset_index()
                     new_df = new_df.drop(columns=['index'])
@@ -415,16 +395,18 @@ class cycles_phases():
             t1 = this_df["time_cumul"].min()
             tn = this_df["time_cumul"].max()
 
-            new_df.at[count,"id"] = self.user_id            
+            # new_df.at[count,"id"] = self.user_id            
             new_df.at[count,"t1"] = t1
             new_df.at[count,"tn"] = tn
-            new_df.at[count,"diff_t"] = new_df.at[count,"tn"] - new_df.at[count,"t1"] 
-            new_df.at[count,"y1"] = this_df.at[0,"NegA"]
+            new_df.at[count,"diff_t"] = tn - t1
+            # new_df.at[count,"y1"] = this_df.at[0,"NegA"]
 
+            y1 = this_df.at[0,"NegA"]
             len_mini_obs = len(this_df)-1
-            new_df.at[count,"yn"] = this_df.at[len_mini_obs,"NegA"]
-            new_df.at[count,"diff_y"] = new_df.at[count,"yn"] - new_df.at[count,"y1"] 
-            new_df.at[count,"slope_e"] = new_df.at[count,"diff_y"] / new_df.at[count,"diff_t"]
+            yn = this_df.at[len_mini_obs,"NegA"]
+            # new_df.at[count,"yn"] = this_df.at[len_mini_obs,"NegA"]
+            new_df.at[count,"diff_y"] = yn - y1
+            # new_df.at[count,"slope_e"] = new_df.at[count,"diff_y"] / new_df.at[count,"diff_t"]
 
             mask = (seg_data['t1'] >= t1) & (seg_data['t2'] <= tn)
             auc_to_min = seg_data.loc[mask]
@@ -434,7 +416,7 @@ class cycles_phases():
             ph_cat = last_i
 
             new_df.at[count,"cat"] = ph_cat
-            new_df.at[count,"phase_nb"] = count_ph 
+            # new_df.at[count,"phase_nb"] = count_ph 
 
             new_df = new_df.reset_index()
             new_df = new_df.drop(columns=['index'])
@@ -450,19 +432,19 @@ class cycles_phases():
         df = self.full_df
         print(df.columns)
         count = 0
-        day_count = 1
-        last_tl = df.at[0,'time']
-        last_tl = last_tl.date().day
+        # day_count = 1
+        # last_tl = df.at[0,'time']
+        # last_tl = last_tl.date().day
        
         for t in df["time"]:
             
-            this_day = t.date().day
-            if this_day > last_tl:
-                df.at[count,"day"] = day_count + 1
-                day_count += 1
-                last_tl = this_day
-            else:
-                df.at[count,"day"] = day_count 
+            # this_day = t.date().day
+            # if this_day > last_tl:
+            #     df.at[count,"day"] = day_count + 1
+            #     day_count += 1
+            #     last_tl = this_day
+            # else:
+            #     df.at[count,"day"] = day_count 
             
             ### End of function ###
             if count == (self.len_obs-1):
@@ -481,26 +463,19 @@ class cycles_phases():
             if count != 0:
                 t2 = df.at[count,'time']
                 t3 = df.at[count+1,'time']
-
                 diff_t = t3-t2
                 diff_t = str(divmod(diff_t, 3600)[0])
                 diff_t = int(diff_t.split("00:00:")[1])
-
                 new_t2 = diff_t + last_t
-
                 df.at[count+1,"time_cumul"] = new_t2
-
                 last_t = new_t2
             else:
                 t2 = df.at[1,"time"]
-
                 diff_t = t2-t
                 diff_t = str(divmod(diff_t, 3600)[0])
                 diff_t = int(diff_t.split("00:00:")[1])
-
                 df.at[count,"time_cumul"] = 0.0
                 df.at[count+1,"time_cumul"] = diff_t
-
                 last_t = diff_t
                 
             count +=1
@@ -509,7 +484,6 @@ class cycles_phases():
         
         inc_df = self.full_df
         count = 0
-        
         last_i = inc_df.at[0,"NegA"] 
 
         for i in inc_df["NegA"]:
@@ -544,16 +518,16 @@ class cycles_phases():
             
         count = 0
         last_i = inc_df.at[0,"phase_statut"]
-        count_ph = 1
+        # count_ph = 1
 
-        for i in inc_df["phase_statut"]:
-            if i != last_i :
-                count_ph +=1
-                inc_df.at[count,"phase_nb"] = count_ph
-            else :
-                inc_df.at[count,"phase_nb"] = count_ph
-            count += 1    
-            last_i = i        
+        # for i in inc_df["phase_statut"]:
+        #     if i != last_i :
+        #         count_ph +=1
+        #         inc_df.at[count,"phase_nb"] = count_ph
+        #     else :
+        #         inc_df.at[count,"phase_nb"] = count_ph
+        #     count += 1    
+        #     last_i = i        
 
         return self.full_df
 
