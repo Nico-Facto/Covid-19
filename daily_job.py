@@ -96,7 +96,7 @@ def Eval(c,data_load,country):
 follow_df1 = Eval(c,data_load,"France")
 follow_df2 = Eval(c,data_load,"China")
 follow_df3 = Eval(c,data_load,"Italy")
-follow_df4 = Eval(c,data_load,"Spain")
+follow_df4 = Eval(c,data_load,"Belgium")
 follow_df5 = Eval(c,data_load,"United States")
 follow_df6 = Eval(c,data_load,"World")
 follow_df7 = Eval(c,data_load,"United Kingdom")
@@ -199,11 +199,10 @@ china_data = last_day_casesch, last_day_deathch, res1ch, res2ch
 last_day_casesit, last_day_deathit, res1it, res2it = fullRoutines(df,periode,"Italy")
 italy_data = last_day_casesit, last_day_deathit, res1it, res2it
 
-try:
-    last_day_casessp, last_day_deathsp, res1sp, res2sp = fullRoutines(df,periode,"Spain")
-    spain_data = last_day_casessp, last_day_deathsp, res1sp, res2sp
-except:
-    print("No spain update")
+
+last_day_casessp, last_day_deathsp, res1sp, res2sp = fullRoutines(df,periode,"Belgium")
+spain_data = last_day_casessp, last_day_deathsp, res1sp, res2sp
+
 
 last_day_casesus, last_day_deathus, res1us, res2us = fullRoutines(df,periode,"United States")
 usa_data = last_day_casesus, last_day_deathus, res1us, res2us
@@ -238,7 +237,7 @@ def popPred(country,rez1,rez2):
 df_pop_pred1 = popPred("France",res1fr, res2fr)
 df_pop_pred2 = popPred("China",res1ch, res2ch)
 df_pop_pred3 = popPred("Italy",res1it, res2it)
-df_pop_pred4 = popPred("Spain",res1sp, res2sp)
+df_pop_pred4 = popPred("Belgium",res1sp, res2sp)
 df_pop_pred5 = popPred("United States",res1us, res2us)
 df_pop_pred6 = popPred("World",res1ww, res2ww)
 df_pop_pred7 = popPred("United Kingdom",res1uk, res2uk)
