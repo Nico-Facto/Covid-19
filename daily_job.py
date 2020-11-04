@@ -200,8 +200,8 @@ last_day_casesit, last_day_deathit, res1it, res2it = fullRoutines(df,periode,"It
 italy_data = last_day_casesit, last_day_deathit, res1it, res2it
 
 
-last_day_casessp, last_day_deathsp, res1sp, res2sp = fullRoutines(df,periode,"Belgium")
-spain_data = last_day_casessp, last_day_deathsp, res1sp, res2sp
+# last_day_casessp, last_day_deathsp, res1sp, res2sp = fullRoutines(df,periode,"Belgium")
+# spain_data = last_day_casessp, last_day_deathsp, res1sp, res2sp
 
 
 last_day_casesus, last_day_deathus, res1us, res2us = fullRoutines(df,periode,"United States")
@@ -237,7 +237,7 @@ def popPred(country,rez1,rez2):
 df_pop_pred1 = popPred("France",res1fr, res2fr)
 df_pop_pred2 = popPred("China",res1ch, res2ch)
 df_pop_pred3 = popPred("Italy",res1it, res2it)
-df_pop_pred4 = popPred("Belgium",res1sp, res2sp)
+# df_pop_pred4 = popPred("Belgium",res1sp, res2sp)
 df_pop_pred5 = popPred("United States",res1us, res2us)
 df_pop_pred6 = popPred("World",res1ww, res2ww)
 df_pop_pred7 = popPred("United Kingdom",res1uk, res2uk)
@@ -246,7 +246,7 @@ df_pop_pred9 = popPred("Iran",res1Iran, res2Iran)
 df_pop_pred10 = popPred("Turkey",res1Turk, res2Turk)
 df_pop_pred11 = popPred("Brazil",res1Braz, res2Braz)
 
-frames = [df_pop_pred1, df_pop_pred2, df_pop_pred3, df_pop_pred4,
+frames = [df_pop_pred1, df_pop_pred2, df_pop_pred3,
           df_pop_pred5, df_pop_pred6, df_pop_pred7, df_pop_pred8,
           df_pop_pred9, df_pop_pred10, df_pop_pred11]
 
