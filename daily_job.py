@@ -96,7 +96,7 @@ def Eval(c,data_load,country):
 follow_df1 = Eval(c,data_load,"France")
 follow_df2 = Eval(c,data_load,"China")
 follow_df3 = Eval(c,data_load,"Italy")
-follow_df4 = Eval(c,data_load,"Belgium")
+# follow_df4 = Eval(c,data_load,"Belgium")
 follow_df5 = Eval(c,data_load,"United States")
 follow_df6 = Eval(c,data_load,"World")
 follow_df7 = Eval(c,data_load,"United Kingdom")
@@ -106,7 +106,7 @@ follow_df10 = Eval(c,data_load,"Turkey")
 follow_df11 = Eval(c,data_load,"Brazil")
 
 ## concatenate all df in 1
-frames = [follow_df1, follow_df2, follow_df3, follow_df4,
+frames = [follow_df1, follow_df2, follow_df3,
           follow_df5, follow_df6, follow_df7, follow_df8,
           follow_df9, follow_df10, follow_df11]
 rapport = pd.concat(frames)
