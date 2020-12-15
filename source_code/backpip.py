@@ -60,3 +60,6 @@ class data_up_pip():
         self.cursor.close()
 
 
+
+
+

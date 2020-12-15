@@ -17,13 +17,18 @@ from sklearn.impute import SimpleImputer
 tip = Sqldd()
 cnx, cursor = tip.get_bdd_co()
 
+this_date = date.today() - timedelta(days=1)
+yesterday_date = date.today() - timedelta(days=2)
+this_date = str(this_date)
+yesterday_date = str(yesterday_date)
+
 ## scrap data from source
 url="https://covid.ourworldindata.org/data/owid-covid-data.csv"
 s=requests.get(url).content
 c=pd.read_csv(io.StringIO(s.decode('utf-8')))
 
 ## this dataset sometime no receive update, so i check the simple link 
-verif_data = c[c['date'].isin([f"{date.today()}"])]
+verif_data = c[c['date'].isin([f"{this_date}"])]
 
 if len(verif_data) == 0:
     print("Not today, check other link")
@@ -31,7 +36,7 @@ if len(verif_data) == 0:
     s=requests.get(url).content
     c=pd.read_csv(io.StringIO(s.decode('utf-8')))
     
-    verif_data = c[c['date'].isin([f"{date.today()}"])]
+    verif_data = c[c['date'].isin([f"{this_date}"])]
     
     ## If with the second link data have not yet be updated, raise Error & try again later
     if len(verif_data) == 0:
@@ -39,14 +44,9 @@ if len(verif_data) == 0:
 else:
     print("Scrap step Ok")
     
-this_date = date.today()
-yesterday_date = date.today() - timedelta(days=1)
-this_date = str(this_date)
-yesterday_date = str(yesterday_date)
 
 tini_df = c.query("date == @this_date")
 tini_df = tini_df.replace({np.nan: 'Null'})
-
 
 data_job = data_up_pip(tini_df) 
 data_job.up_baseline()
@@ -224,7 +224,7 @@ Braz_data = last_day_casesBraz, last_day_deathBraz, res1Braz, res2Braz
 
 def popPred(country,rez1,rez2):
     pop_pred = pd.DataFrame()
-    pop_pred.loc[0,"date"] = date.today()
+    pop_pred.loc[0,"date"] = this_date
     pop_pred.loc[0,"country"] = country
     pop_pred.loc[0,"total_cases_predict"] = rez1
     pop_pred.loc[0,"total_cases_real"] = 0
