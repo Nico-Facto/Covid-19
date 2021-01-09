@@ -65,6 +65,7 @@ def Eval(c,data_load,country):
     """
     df = c
     df = df[df['location'].isin([f"{country}"])]
+    df = df[df['date'].isin([f"{this_date}"])]
     df = df.reset_index()
     sle = df.iloc[-1]
     v0 = sle["date"]
