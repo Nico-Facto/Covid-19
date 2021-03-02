@@ -15,6 +15,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.impute import SimpleImputer
 
 tip = Sqldd()
+
 cnx, cursor = tip.get_bdd_co()
 
 this_date = date.today() - timedelta(days=1)
