@@ -39,7 +39,7 @@ class data_up_pip():
         for i,row in df.iterrows():
             cv_date = str(row[0])
             value_tuple = (cv_date,row[1],row[2],row[3])
-            self.cursor.execute(f"""INSERT INTO cov_aipred (date, country, total_cases_predict, total_deaths_predict)
+            self.cursor.execute(f"""INSERT INTO cov_aipred (date, location, total_cases_predict, total_deaths_predict)
                              VALUES {value_tuple};""")
             self.cnx.commit()
         print(" Insert Prediction Done !! ")
@@ -48,7 +48,7 @@ class data_up_pip():
         df = self.main_df
         for i,row in df.iterrows():
             value_tuple = (row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7])
-            self.cursor.execute(f"""INSERT INTO cov_rapport (date, country, total_cases_predict, total_cases_real,
+            self.cursor.execute(f"""INSERT INTO cov_rapport (date, location, total_cases_predict, total_cases_real,
             total_deaths_predict, total_deaths_real, error_abs_cases, error_abs_deaths)
                              VALUES {value_tuple};""")
             self.cnx.commit()
@@ -58,6 +58,7 @@ class data_up_pip():
         self.cnx.commit()
         self.cnx.close()
         self.cursor.close()
+
 
 
 

@@ -72,7 +72,7 @@ def Eval(c,data_load,country):
     v1 = sle["total_cases"]
     v2 = sle["total_deaths"]
     
-    res_tempo = data_load[data_load['country'].isin([f"{country}"])]
+    res_tempo = data_load[data_load['location'].isin([f"{country}"])]
     res_tempo = res_tempo.reset_index()
 
     rez1 = res_tempo.at[0,"total_cases_predict"]
@@ -83,7 +83,7 @@ def Eval(c,data_load,country):
 
     follow_df = pd.DataFrame()
     follow_df.at[0,"date"] = v0
-    follow_df.at[0,"country"] = country
+    follow_df.at[0,"location"] = country
     follow_df.at[0,"total_cases_predict"] = rez1
     follow_df.at[0,"total_cases_real"] = v1
     follow_df.at[0,"total_deaths_predict"] = rez2
@@ -226,7 +226,7 @@ Braz_data = last_day_casesBraz, last_day_deathBraz, res1Braz, res2Braz
 def popPred(country,rez1,rez2):
     pop_pred = pd.DataFrame()
     pop_pred.loc[0,"date"] = this_date
-    pop_pred.loc[0,"country"] = country
+    pop_pred.loc[0,"location"] = country
     pop_pred.loc[0,"total_cases_predict"] = rez1
     pop_pred.loc[0,"total_cases_real"] = 0
     pop_pred.loc[0,"total_deaths_predict"] = rez2
