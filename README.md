@@ -1,5 +1,7 @@
 ## Covid-19 : IA Machine Learning experiment
 
+Project is no longer maintained
+
 ## Full application :
 
 https://covpredic.herokuapp.com/
